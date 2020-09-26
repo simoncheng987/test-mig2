@@ -55,6 +55,7 @@ public class Start_Scene extends Scene {
 			BorderPane layout = new BorderPane();
 			layout.setPadding(new Insets(20, 30, 20, 30));
 			layout.setBottom(hbox);
+			layout.setStyle("-fx-background-color:#f0ecc4");
 
 			start_scene_instance = new Start_Scene(layout,
 					GUI_Manager.WINDOW_WIDTH, GUI_Manager.WINDOW_HEIGHT);

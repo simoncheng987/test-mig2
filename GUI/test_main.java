@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 /**
@@ -43,8 +44,12 @@ public class test_main extends Application {
 
 		Start_Scene start_scene = Start_Scene.getInstance();
 		Practice_Scene practice_Scene = Practice_Scene.getInstance();
+		
+		for (RadioButton rb : practice_Scene.get_radio_button_list()) {
+			rb.setText("Category");
+		}
 
-		window.setScene(practice_Scene);
+		window.setScene(start_scene);
 		window.show();
 
 		// remind user to save their progres before exitting
