@@ -44,12 +44,15 @@ public class test_main extends Application {
 
 		Start_Scene start_scene = Start_Scene.getInstance();
 		Practice_Scene practice_Scene = Practice_Scene.getInstance();
-		
+		Practice_User_Input_Scene practice_User_Input_Scene = Practice_User_Input_Scene
+				.getInstance();
+		Correct_Scene correct_Scene = Correct_Scene.getInstance();
+		Incorrect_Scene incorrect_Scene = Incorrect_Scene.getInstance();
 		for (RadioButton rb : practice_Scene.get_radio_button_list()) {
 			rb.setText("Category");
 		}
 
-		window.setScene(start_scene);
+		window.setScene(correct_Scene);
 		window.show();
 
 		// remind user to save their progres before exitting
@@ -60,7 +63,7 @@ public class test_main extends Application {
 //			shutdown(window);
 //		});
 	}
-	
+
 //	private void shutdown(Stage mainWindow) {
 //		ButtonType okButton = new ButtonType("Yes", ButtonData.YES);
 //		ButtonType noButton = new ButtonType("Cancel", ButtonData.NO);
