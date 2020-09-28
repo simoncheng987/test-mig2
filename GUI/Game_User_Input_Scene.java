@@ -23,16 +23,16 @@ import javafx.scene.layout.VBox;
  *         Design Pattern: Singleton
  * 
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
- *         practice_user_input_scene instance
+ *         game_user_input_scene instance
  * 
- *         Description: The GUI of the user input scene in practice mode.
+ *         Description: The GUI of the user input scene in game mode.
  */
 
-public class Practice_User_Input_Scene extends Scene {
+public class Game_User_Input_Scene extends Scene {
 
-	private static Practice_User_Input_Scene practice_user_input_scene_instance = null;
+	private static Game_User_Input_Scene game_user_input_scene_instance = null;
 
-	private static Label top_laebl_practice_mode;
+	private static Label top_laebl_game_mode;
 	private static Label top_laebl_clue_notification;
 	private static Label top_laebl_question;
 	private static Label center_laebl_notification;
@@ -44,43 +44,43 @@ public class Practice_User_Input_Scene extends Scene {
 	private static Button bottom_button_speed_down;
 	private static Button bottom_button_repeat;
 	private static Button bottom_button_submit;
-	private static Button bottom_button_back;
+	private static Button bottom_button_show_answer;
 
 	private static String button_style = "-fx-background-color:#d8b063; -fx-font-family:monospace; -fx-font-size:18; -fx-font-weight:bold; -fx-font-style:italic; -fx-text-fill:#583c30;";
 
-	public Practice_User_Input_Scene(Parent root, double width, double height) {
+	public Game_User_Input_Scene(Parent root, double width, double height) {
 		super(root, width, height);
 	}
 
-	public Practice_User_Input_Scene(Parent root) {
+	public Game_User_Input_Scene(Parent root) {
 		super(root);
 	}
 
 	/**
-	 * Method that returns an instance of practice_user_input_scene object
+	 * Method that returns an instance of game_user_input_scene object
 	 * 
 	 * @return Start_Scene
 	 */
-	public static Practice_User_Input_Scene getInstance() {
-		if (practice_user_input_scene_instance == null) {
+	public static Game_User_Input_Scene getInstance() {
+		if (game_user_input_scene_instance == null) {
 
 			// the top layout
-			top_laebl_practice_mode = new Label("Practice Mode");
-			top_laebl_practice_mode.setStyle(
+			top_laebl_game_mode = new Label("Game Mode");
+			top_laebl_game_mode.setStyle(
 					"-fx-font-size:30; -fx-text-fill:#583c30; -fx-font-weight:bold;");
-			top_laebl_practice_mode.setLayoutX(305);
+			top_laebl_game_mode.setLayoutX(320);
 
-			top_laebl_clue_notification = new Label(" Here is your clue");
+			top_laebl_clue_notification = new Label(" There is no written clue in Game Mode:");
 			top_laebl_clue_notification.setStyle(
 					"-fx-font-size:20; -fx-text-fill:#583c30; -fx-font-style:italic;");
 
 			top_laebl_question = new Label(
-					"This is the name of the long chain of mountains that make up the backbone of the South Island");
+					"Click on the repeat button to listen to it once more");
 			top_laebl_question.setStyle(
-					"-fx-font-size:44; -fx-text-fill:#000000; -fx-text-alignment:center; -fx-wrap-text:true;");
+					"-fx-font-size:65; -fx-text-fill:#000000; -fx-text-alignment:center; -fx-wrap-text:true;");
 
 			AnchorPane top_anchor_pane = new AnchorPane(
-					top_laebl_practice_mode);
+					top_laebl_game_mode);
 			VBox top_vbox = new VBox(top_anchor_pane,
 					top_laebl_clue_notification, top_laebl_question);
 			top_laebl_question.setPadding(new Insets(0, 0, 0, 30));
@@ -127,10 +127,10 @@ public class Practice_User_Input_Scene extends Scene {
 			bottom_button_repeat.setStyle(button_style);
 			bottom_button_repeat.setMinSize(100, 50);
 
-			bottom_button_back = new Button("Back to menu");
-			bottom_button_back.setStyle(button_style);
-			bottom_button_back.setLayoutX(50);
-			bottom_button_back.setMinSize(150, 75);
+			bottom_button_show_answer = new Button("Don't Know");
+			bottom_button_show_answer.setStyle(button_style);
+			bottom_button_show_answer.setLayoutX(50);
+			bottom_button_show_answer.setMinSize(150, 75);
 
 			bottom_button_submit = new Button("Submit");
 			bottom_button_submit.setStyle(button_style);
@@ -138,7 +138,7 @@ public class Practice_User_Input_Scene extends Scene {
 			bottom_button_submit.setMinSize(150, 75);
 
 			AnchorPane bottom_anchor_pane2 = new AnchorPane(
-					bottom_button_back, bottom_button_submit);
+					bottom_button_show_answer, bottom_button_submit);
 
 			HBox bottom_hbox = new HBox(bottom_button_speed_up,
 					bottom_button_speed_down, bottom_button_repeat,
@@ -155,12 +155,12 @@ public class Practice_User_Input_Scene extends Scene {
 			layout.setBottom(bottom_vbox);
 			layout.setStyle("-fx-background-color:#f0ecc4");
 
-			practice_user_input_scene_instance = new Practice_User_Input_Scene(
+			game_user_input_scene_instance = new Game_User_Input_Scene(
 					layout, GUI_Manager.WINDOW_WIDTH,
 					GUI_Manager.WINDOW_HEIGHT);
 		}
 
-		return practice_user_input_scene_instance;
+		return game_user_input_scene_instance;
 	}
 
 	public Label get_question_label() {
@@ -199,8 +199,8 @@ public class Practice_User_Input_Scene extends Scene {
 	 * 
 	 * @return
 	 */
-	public Button get_back_button() {
-		return bottom_button_back;
+	public Button get_show_answer_button() {
+		return bottom_button_show_answer;
 	}
 
 	public Button get_submit_button() {
