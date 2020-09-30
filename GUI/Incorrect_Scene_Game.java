@@ -24,24 +24,25 @@ import javafx.scene.layout.VBox;
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
  *         correct_scene instance
  * 
- *         Description: The GUI of the user's answer is correct
+ *         Description: The GUI of the user's answer is incorrect
  */
 
-public class Correct_Scene extends Scene {
+public class Incorrect_Scene_Game extends Scene {
 
-	private static Correct_Scene correct_scene_instance = null;
+	private static Incorrect_Scene_Game incorrect_scene_instance = null;
 
-	private static Label center_laebl;
+	private static Label center_label_notification;
+	private static Label center_laebl_correct_answer;
 
 	private static Button bottom_button_back;
 
 	private static String button_style = "-fx-background-color:#d8b063; -fx-font-family:monospace; -fx-font-size:18; -fx-font-weight:bold; -fx-font-style:italic; -fx-text-fill:#583c30;";
 
-	public Correct_Scene(Parent root, double width, double height) {
+	public Incorrect_Scene_Game(Parent root, double width, double height) {
 		super(root, width, height);
 	}
 
-	public Correct_Scene(Parent root) {
+	public Incorrect_Scene_Game(Parent root) {
 		super(root);
 	}
 
@@ -50,25 +51,31 @@ public class Correct_Scene extends Scene {
 	 * 
 	 * @return Start_Scene
 	 */
-	public static Correct_Scene getInstance() {
-		if (correct_scene_instance == null) {
+	public static Incorrect_Scene_Game getInstance() {
+		if (incorrect_scene_instance == null) {
 			
 			// the top layout
 			AnchorPane blank_anchor_pane = new AnchorPane();
 			blank_anchor_pane.setPrefSize(800, 50);
 			
 			// the center layout
+
+			center_label_notification = new Label(" The correct answer is:");
+			center_label_notification.setStyle(
+					"-fx-font-size:20; -fx-text-fill:#583c30; -fx-font-style:italic;");
+
+			center_laebl_correct_answer = new Label(
+					"the Official National Wizard");
+			center_laebl_correct_answer.setStyle(
+					"-fx-font-size:44; -fx-text-fill:#82a6ae; -fx-text-alignment:center; -fx-wrap-text:true;");
 			
-			center_laebl = new Label(
-					"Correct!!");
-			center_laebl.setStyle(
-					"-fx-font-size:72; -fx-text-fill:#98ce97; -fx-text-alignment:center; -fx-wrap-text:true;");
-			VBox top_vbox = new VBox(center_laebl);
+			VBox top_vbox = new VBox( center_label_notification,
+					center_laebl_correct_answer);
 			top_vbox.setAlignment(Pos.CENTER);
 
 			// the bottom layout
 
-			bottom_button_back = new Button("Back to menu");
+			bottom_button_back = new Button("Back");
 			bottom_button_back.setStyle(button_style);
 			bottom_button_back.setMinSize(125, 50);
 
@@ -86,16 +93,16 @@ public class Correct_Scene extends Scene {
 			layout.setBottom(bottom_vbox);
 			layout.setStyle("-fx-background-color:#f0ecc4");
 
-			correct_scene_instance = new Correct_Scene(
+			incorrect_scene_instance = new Incorrect_Scene_Game(
 					layout, GUI_Manager.WINDOW_WIDTH,
 					GUI_Manager.WINDOW_HEIGHT);
 		}
 
-		return correct_scene_instance;
+		return incorrect_scene_instance;
 	}
 
-	public Label get_label() {
-		return center_laebl;
+	public Label get_correct_answer_label() {
+		return center_laebl_correct_answer;
 	}
 
 	public Button get_back_button() {

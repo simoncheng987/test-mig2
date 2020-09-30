@@ -9,3 +9,8 @@
 /Game_Scene.class
 /Game_User_Input_Scene.class
 /Award_Scene.class
+/Incorrect_Scene_Game.class
+/Correct_Scene_Game.class
+/Game_Scene_Game.class
+/Correct_Scene_Practice.class
+/Incorrect_Scene_Practice.class

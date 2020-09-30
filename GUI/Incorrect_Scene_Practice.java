@@ -27,9 +27,9 @@ import javafx.scene.layout.VBox;
  *         Description: The GUI of the user's answer is incorrect
  */
 
-public class Incorrect_Scene extends Scene {
+public class Incorrect_Scene_Practice extends Scene {
 
-	private static Incorrect_Scene incorrect_scene_instance = null;
+	private static Incorrect_Scene_Practice incorrect_scene_instance = null;
 
 	private static Label center_label_notification;
 	private static Label center_laebl_correct_answer;
@@ -38,11 +38,11 @@ public class Incorrect_Scene extends Scene {
 
 	private static String button_style = "-fx-background-color:#d8b063; -fx-font-family:monospace; -fx-font-size:18; -fx-font-weight:bold; -fx-font-style:italic; -fx-text-fill:#583c30;";
 
-	public Incorrect_Scene(Parent root, double width, double height) {
+	public Incorrect_Scene_Practice(Parent root, double width, double height) {
 		super(root, width, height);
 	}
 
-	public Incorrect_Scene(Parent root) {
+	public Incorrect_Scene_Practice(Parent root) {
 		super(root);
 	}
 
@@ -51,7 +51,7 @@ public class Incorrect_Scene extends Scene {
 	 * 
 	 * @return Start_Scene
 	 */
-	public static Incorrect_Scene getInstance() {
+	public static Incorrect_Scene_Practice getInstance() {
 		if (incorrect_scene_instance == null) {
 			
 			// the top layout
@@ -93,7 +93,7 @@ public class Incorrect_Scene extends Scene {
 			layout.setBottom(bottom_vbox);
 			layout.setStyle("-fx-background-color:#f0ecc4");
 
-			incorrect_scene_instance = new Incorrect_Scene(
+			incorrect_scene_instance = new Incorrect_Scene_Practice(
 					layout, GUI_Manager.WINDOW_WIDTH,
 					GUI_Manager.WINDOW_HEIGHT);
 		}
