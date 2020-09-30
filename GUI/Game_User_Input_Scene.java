@@ -44,7 +44,7 @@ public class Game_User_Input_Scene extends Scene {
 	private static Button bottom_button_speed_down;
 	private static Button bottom_button_repeat;
 	private static Button bottom_button_submit;
-	private static Button bottom_button_show_answer;
+	private static Button bottom_button_dont_know;
 
 	private static String button_style = "-fx-background-color:#d8b063; -fx-font-family:monospace; -fx-font-size:18; -fx-font-weight:bold; -fx-font-style:italic; -fx-text-fill:#583c30;";
 
@@ -127,10 +127,10 @@ public class Game_User_Input_Scene extends Scene {
 			bottom_button_repeat.setStyle(button_style);
 			bottom_button_repeat.setMinSize(100, 50);
 
-			bottom_button_show_answer = new Button("Don't Know");
-			bottom_button_show_answer.setStyle(button_style);
-			bottom_button_show_answer.setLayoutX(50);
-			bottom_button_show_answer.setMinSize(150, 75);
+			bottom_button_dont_know = new Button("Don't Know");
+			bottom_button_dont_know.setStyle(button_style);
+			bottom_button_dont_know.setLayoutX(50);
+			bottom_button_dont_know.setMinSize(150, 75);
 
 			bottom_button_submit = new Button("Submit");
 			bottom_button_submit.setStyle(button_style);
@@ -138,7 +138,7 @@ public class Game_User_Input_Scene extends Scene {
 			bottom_button_submit.setMinSize(150, 75);
 
 			AnchorPane bottom_anchor_pane2 = new AnchorPane(
-					bottom_button_show_answer, bottom_button_submit);
+					bottom_button_dont_know, bottom_button_submit);
 
 			HBox bottom_hbox = new HBox(bottom_button_speed_up,
 					bottom_button_speed_down, bottom_button_repeat,
@@ -194,13 +194,13 @@ public class Game_User_Input_Scene extends Scene {
 	}
 
 	/**
-	 * return the show answer button. When user click on this, bring them to the
+	 * return the dont_know_button button. When user click on this, bring them to the
 	 * incorrect scene.
 	 * 
 	 * @return
 	 */
-	public Button get_show_answer_button() {
-		return bottom_button_show_answer;
+	public Button get_dont_know_button() {
+		return bottom_button_dont_know;
 	}
 
 	public Button get_submit_button() {

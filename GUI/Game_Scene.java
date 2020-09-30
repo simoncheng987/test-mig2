@@ -93,6 +93,9 @@ public class Game_Scene extends Scene {
 			go_button.setLayoutY(15);
 			go_button.setPrefSize(120, 50);
 			go_button.setStyle(button_style);
+			
+			// if want to have it back just remove this line
+			go_button.setVisible(false);
 
 			current_score_label_bottom = new Label("Current Score: 0");
 			current_score_label_bottom.setLayoutX(20);

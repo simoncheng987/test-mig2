@@ -6,7 +6,68 @@ public class GUI_Manager {
 	public final static int WINDOW_HEIGHT = 600;
 	public final static String BUTTON_FONT_STYLE_STRING = "-fx-background-color:#d8b063; -fx-font-family:monospace; -fx-font-size:40; -fx-font-weight:lighter; -fx-font-style:italic; -fx-text-fill:#583c30;";
 
+	private Start_Scene start_scene;
+	private Practice_Scene practice_scene;
+	private Practice_User_Input_Scene practice_user_input_scene;
+	private Correct_Scene_Practice correct_scene_practice;
+	private Incorrect_Scene_Practice incorrect_scene_practice;
+	private Correct_Scene_Game correct_scene_game;
+	private Incorrect_Scene_Game incorrect_scene_game;
+	private Game_Scene game_scene;
+	private Game_User_Input_Scene game_user_input_scene;
+	private Award_Scene award_scene;
+
 	public GUI_Manager() {
-		Start_Scene start_scene = Start_Scene.getInstance();
+		start_scene = Start_Scene.getInstance();
+		practice_scene = Practice_Scene.getInstance();
+		practice_user_input_scene = Practice_User_Input_Scene.getInstance();
+		correct_scene_practice = Correct_Scene_Practice.getInstance();
+		incorrect_scene_practice = Incorrect_Scene_Practice.getInstance();
+		correct_scene_game = Correct_Scene_Game.getInstance();
+		incorrect_scene_game = Incorrect_Scene_Game.getInstance();
+		game_scene = Game_Scene.getInstance();
+		game_user_input_scene = Game_User_Input_Scene.getInstance();
+		award_scene = Award_Scene.getInstance();
 	}
+	
+	public Start_Scene get_start_scene() {
+		return start_scene;
+	}
+	
+	public Practice_Scene get_practice_scene() {
+		return practice_scene;
+	}
+	
+	public Practice_User_Input_Scene get_practice_user_input_scene() {
+		return practice_user_input_scene;
+	}
+	
+	public Correct_Scene_Practice get_correct_scene_practice() {
+		return correct_scene_practice;
+	}
+	
+	public Incorrect_Scene_Practice get_incorrect_scene_practice() {
+		return incorrect_scene_practice;
+	}
+	
+	public Correct_Scene_Game get_correct_scene_game() {
+		return correct_scene_game;
+	}
+	
+	public Incorrect_Scene_Game get_incorrect_scene_game() {
+		return incorrect_scene_game;
+	}
+	
+	public Game_Scene get_game_scene() {
+		return game_scene;
+	}
+	
+	public Game_User_Input_Scene get_game_user_input_scene() {
+		return game_user_input_scene;
+	}
+	
+	public Award_Scene get_award_scene() {
+		return award_scene;
+	}
+	
 }

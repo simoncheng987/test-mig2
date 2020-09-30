@@ -1,4 +1,4 @@
-﻿Places
+-Places
 This is the capital of New Zealand, (What is) Wellington
 This is the Māori name for New Zealand, (What is) Aotearoa
 This is the largest city in New Zealand, (What is) Auckland
@@ -22,8 +22,6 @@ This is the flightless bird that features in the Royal New Zealand Airforce logo
 This is what the stars on the New Zealand flag represent, (what is ) the Southern Cross
  
  
-________________
-
 
 Geography
 This is the largest lake in New Zealand , (What is) Taupo
@@ -103,7 +101,6 @@ This common forest bird is known for its beautiful song, and distinctive white t
 This is the only poisonous Native spider in New Zealand (What is) the Katipō
 This grub chews up wood, and is edible ( What is) the Huhu Grub
  
- 
 Oddities
 What is the year the Government pledged New Zealand would be predator free, (what is) 2050
 This is the name of New Zealand Male Rugby Team, (What is) the All Blacks
@@ -112,3 +109,5 @@ This is the nationality of the inventors of the bobby pin, wide toothed shearing
 In 1990 New Zealand became the first country in the modern world to make this appointment, (what is) the Official National Wizard 
 With more that 400, New Zealand has more of these per capita than any other country in the world, (what are) Golf Courses.
 The first record wholly produced in New Zealand from composition to pressing, (what is) Blue Smoke.
+
+

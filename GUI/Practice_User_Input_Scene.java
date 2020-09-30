@@ -44,7 +44,7 @@ public class Practice_User_Input_Scene extends Scene {
 	private static Button bottom_button_speed_down;
 	private static Button bottom_button_repeat;
 	private static Button bottom_button_submit;
-	private static Button bottom_button_back;
+	private static Button bottom_button_back_to_menu;
 
 	private static String button_style = "-fx-background-color:#d8b063; -fx-font-family:monospace; -fx-font-size:18; -fx-font-weight:bold; -fx-font-style:italic; -fx-text-fill:#583c30;";
 
@@ -127,10 +127,10 @@ public class Practice_User_Input_Scene extends Scene {
 			bottom_button_repeat.setStyle(button_style);
 			bottom_button_repeat.setMinSize(100, 50);
 
-			bottom_button_back = new Button("Back to menu");
-			bottom_button_back.setStyle(button_style);
-			bottom_button_back.setLayoutX(50);
-			bottom_button_back.setMinSize(150, 75);
+			bottom_button_back_to_menu = new Button("Back to menu");
+			bottom_button_back_to_menu.setStyle(button_style);
+			bottom_button_back_to_menu.setLayoutX(50);
+			bottom_button_back_to_menu.setMinSize(150, 75);
 
 			bottom_button_submit = new Button("Submit");
 			bottom_button_submit.setStyle(button_style);
@@ -138,7 +138,7 @@ public class Practice_User_Input_Scene extends Scene {
 			bottom_button_submit.setMinSize(150, 75);
 
 			AnchorPane bottom_anchor_pane2 = new AnchorPane(
-					bottom_button_back, bottom_button_submit);
+					bottom_button_back_to_menu, bottom_button_submit);
 
 			HBox bottom_hbox = new HBox(bottom_button_speed_up,
 					bottom_button_speed_down, bottom_button_repeat,
@@ -199,8 +199,8 @@ public class Practice_User_Input_Scene extends Scene {
 	 * 
 	 * @return
 	 */
-	public Button get_back_button() {
-		return bottom_button_back;
+	public Button get_back_to_memu_button() {
+		return bottom_button_back_to_menu;
 	}
 
 	public Button get_submit_button() {
