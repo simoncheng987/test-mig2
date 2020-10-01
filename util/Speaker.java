@@ -3,6 +3,7 @@ package util;
 import java.io.IOException;
 
 public class Speaker {
+
 	public static void speedySpeak(String sentence, int speed) throws InterruptedException, IOException {
 		String _speed = String.valueOf(speed);
 		System.out.println(_speed);
@@ -47,3 +48,4 @@ public class Speaker {
 		return speed - 10;
 	}
 }
+
