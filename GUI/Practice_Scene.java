@@ -162,6 +162,10 @@ public class Practice_Scene extends Scene {
 		}
 		return null;
 	}
+	
+	public ToggleGroup get_toggle_group() {
+		return toggle_group;
+	}
 
 //	public Button get_game_button() {
 //		return game_button;
