@@ -126,7 +126,6 @@ public class FileIO {
 					if ((line.length() < 3) && (read == true)) {
 						output.add(new Categories(CategoriesNames.get(i),
 								questions, answers));
-						System.err.println(i);
 						
 						read = false;
 						break;

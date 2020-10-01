@@ -128,6 +128,7 @@ public class test_main extends Application {
 		GUI_Manager gui_manager = new GUI_Manager();
 		Controller_Manager controller_manager = new Controller_Manager(
 				gui_manager, window);
+		//Util.gui_manager = gui_manager;
 		Util util = new Util(gui_manager);
 		window.setScene(gui_manager.get_start_scene());
 		window.show();
