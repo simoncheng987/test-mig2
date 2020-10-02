@@ -30,6 +30,12 @@ public class Util {
 	public static List<Categories> game_database = new ArrayList<>();
 	public static List<Label> game_label_list = new ArrayList<>();
 	public static ArrayList<ArrayList<Button>> game_button_matrix = new ArrayList<>();
+	
+	// these are variable for games
+	public static String current_question = "";
+	public static String current_correct_answer = "";
+	public static int current_game_value = 0;
+
 	// public static int
 
 	public Util(GUI_Manager gui_manager)
@@ -40,6 +46,33 @@ public class Util {
 		set_up_practice_scene();
 		set_up_game_database();
 		set_up_game_scene();
+	}
+
+	public static void reset() throws FileNotFoundException, IOException {
+
+		main_database = new ArrayList<>();
+		category_list = new ArrayList<>();
+
+		practice_index_list = new ArrayList<>();
+		practice_question_list = new ArrayList<>();
+		practice_answer_list = new ArrayList<>();
+
+		// public static int practice_list_index;
+		practice_number_of_attempt = 0;
+		speaker_speed = 100;
+
+		game_score = 0;
+		category_list_game = new ArrayList<>();
+		game_database = new ArrayList<>();
+		game_label_list = new ArrayList<>();
+		game_button_matrix = new ArrayList<>();
+
+		set_up_main_database();
+		set_up_practice_database();
+		set_up_practice_scene();
+		set_up_game_database();
+		set_up_game_scene();
+
 	}
 
 	public static void set_up_main_database()
@@ -89,7 +122,7 @@ public class Util {
 			int size_of_question = game_database.get(i).question.size();
 			List<Integer> temp_value_list = new ArrayList<>();
 			for (j = 0; j < size_of_question; j++) {
-				int value = (j+1) * 100;
+				int value = (j + 1) * 100;
 				temp_value_list.add(value);
 			}
 			game_database.get(i).value_list = temp_value_list;
@@ -103,18 +136,50 @@ public class Util {
 		for (int i = 0; i < game_label_list.size(); i++) {
 			game_label_list.get(i).setText(category_list_game.get(i));
 		}
-		
+
+		// set up text for buttons and visibility
 		game_button_matrix = gui_manager.get_game_scene().get_button_matrix();
 		for (int i = 0; i < game_button_matrix.size(); i++) {
 			ArrayList<Button> temp_button_list = game_button_matrix.get(i);
 			for (int j = 0; j < temp_button_list.size(); j++) {
 				int temp_value = game_database.get(i).value_list.get(j);
-				temp_button_list.get(j).setText(Integer.toString(temp_value));;
+				temp_button_list.get(j).setText(Integer.toString(temp_value));
+				temp_button_list.get(j).setVisible(true);
+				temp_button_list.get(j).setDisable(true);
+				if (j == 0) {
+					temp_button_list.get(j).setDisable(false);
+				}
 			}
 		}
 	}
 	
-	public static void enable_game_button(){
+	public static void set_up_button_matrix() {
+		
+	}
+
+	/**
+	 * By checking whether the last button from each category is visible to
+	 * detect whether the game is finished or not
+	 * 
+	 * @return output
+	 */
+	public static boolean check_is_game_finished() {
+
+		boolean output = true;
+		ArrayList<ArrayList<Button>> temp_matrix = gui_manager.get_game_scene()
+				.get_button_matrix();
+
+		for (int i = 0; i < temp_matrix.size(); i++) {
+			ArrayList<Button> temp_list = temp_matrix.get(i);
+			if (temp_list.get(temp_list.size() - 1).isVisible() == true) {
+				output = false;
+				break;
+			}
+		}
+		return output;
+	}
+	
+	public static void enable_game_button() {
 //		for (int i = 0; i < game_database.size(); i++) {
 //			int index = game_database.get(i).current_index;
 //			ArrayList<Button> temp_button_list = game_button_matrix.get(i);
@@ -124,8 +189,8 @@ public class Util {
 //			}
 //		}
 	}
-	
-	//public static void check
+
+	// public static void check
 
 	public List<Integer> get_practice_index_list() {
 		return practice_index_list;

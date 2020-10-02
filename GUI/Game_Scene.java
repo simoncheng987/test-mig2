@@ -233,6 +233,26 @@ public class Game_Scene extends Scene {
 
 		return output_button;
 	}
+	
+	/**
+	 * takes an input button, returns the catrogry it belongs to
+	 * @param input_button
+	 * @return
+	 */
+	public String get_category_name_by_button(Button input_button) {
+
+		for (int i = 0; i < button_matrix.size(); i++) {
+			ArrayList<Button> temp_button_list = button_matrix.get(i);
+			for (int j = 0; j < temp_button_list.size(); j++) {
+				if (temp_button_list.get(j) == input_button) {
+					//System.out.println(label_list.get(i).getText() + input_button.getText());
+					return label_list.get(j).getText();
+				}
+			}
+		}
+
+		return "nf";
+	}
 
 	/**
 	 * Method that sets a button unclickable with its GUI changed to a lighter
@@ -254,6 +274,10 @@ public class Game_Scene extends Scene {
 	 */
 	public void set_button_invisible(Button button) {
 		button.setVisible(false);
+	}
+	
+	public Label get_current_score_label() {
+		return current_score_label_bottom;
 	}
 
 }

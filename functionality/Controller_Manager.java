@@ -2,7 +2,6 @@ package functionality;
 
 import GUI.GUI_Manager;
 import javafx.stage.Stage;
-import util.Util;
 
 public class Controller_Manager {
 	GUI_Manager gui_manager;
@@ -17,6 +16,7 @@ public class Controller_Manager {
 	private Practice_Scene_Controller practice_scene_controller;
 	private Practice_User_Input_Scene_Controller practice_user_input_scene_controller;
 	private Start_Scene_Controller start_scene_controller;
+	private Award_Scene_Controller award_scene_controller;
 
 	public Controller_Manager(GUI_Manager gui_manager, Stage window) {
 		this.gui_manager = gui_manager;
@@ -39,6 +39,7 @@ public class Controller_Manager {
 				gui_manager, window);
 		start_scene_controller = new Start_Scene_Controller(gui_manager,
 				window);
+		award_scene_controller = new Award_Scene_Controller(gui_manager, window);
 	}
 
 	public Correct_Scene_Game_Controller get_correct_scene_game_controller() {

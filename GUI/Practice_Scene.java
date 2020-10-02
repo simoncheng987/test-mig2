@@ -90,11 +90,6 @@ public class Practice_Scene extends Scene {
 			go_button.setPrefSize(120, 50);
 			go_button.setStyle(button_style);
 
-//			instruction_label_bottom = new Label(
-//					"Whenever you are ready, please click on");
-//			AnchorPane bottom_anchor_pane = new AnchorPane(go_button,
-//					instruction_label_bottom);
-
 			AnchorPane bottom_anchor_pane = new AnchorPane(go_button);
 			bottom_anchor_pane.setPrefHeight(80);
 			bottom_anchor_pane.setPrefWidth(600);
@@ -116,6 +111,9 @@ public class Practice_Scene extends Scene {
 					radio_button_list.add(radio_button);
 				}
 			}
+			
+			// select the first radio button by default
+			toggle_group.getToggles().get(0).setSelected(true);
 
 			overall_layout.setTop(top_anchor_pane);
 			overall_layout.setCenter(middle_grid_pane);
@@ -166,13 +164,5 @@ public class Practice_Scene extends Scene {
 	public ToggleGroup get_toggle_group() {
 		return toggle_group;
 	}
-
-//	public Button get_game_button() {
-//		return game_button;
-//	}
-//
-//	public Button get_practice_button() {
-//		return practice_button;
-//	}
 
 }
