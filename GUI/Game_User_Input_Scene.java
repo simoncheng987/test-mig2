@@ -77,7 +77,7 @@ public class Game_User_Input_Scene extends Scene {
 			top_laebl_question = new Label(
 					"Click on the repeat button to listen to it once more");
 			top_laebl_question.setStyle(
-					"-fx-font-size:65; -fx-text-fill:#000000; -fx-text-alignment:center; -fx-wrap-text:true;");
+					"-fx-font-size:55; -fx-text-fill:#000000; -fx-text-alignment:center; -fx-wrap-text:true;");
 
 			AnchorPane top_anchor_pane = new AnchorPane(
 					top_laebl_game_mode);

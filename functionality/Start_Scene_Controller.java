@@ -3,6 +3,7 @@ package functionality;
 import java.util.ArrayList;
 
 import GUI.GUI_Manager;
+import application.Main;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
@@ -17,6 +18,7 @@ public class Start_Scene_Controller {
 		this.window = window;
 		set_game_button();
 		set_practice_button();
+		set_exit_button();
 	}
 
 	public void set_game_button() {
@@ -37,6 +39,16 @@ public class Start_Scene_Controller {
 				.get_practice_button();
 		practice_button.setOnAction(e -> {
 			window.setScene(gui_manager.get_practice_scene());
+		});
+	}
+	
+
+	public void set_exit_button() {
+		Button exit_button = gui_manager.get_start_scene()
+				.get_exit_button();
+		exit_button.setOnAction(e -> {
+				// execute own shutdown procedure
+				Util.shutdown(window);
 		});
 	}
 
