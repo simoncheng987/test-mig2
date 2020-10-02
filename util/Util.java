@@ -7,9 +7,13 @@ import java.util.List;
 
 import GUI.GUI_Manager;
 import application.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.stage.Stage;
 
 public class Util {
 
@@ -66,6 +70,10 @@ public class Util {
 		game_database = new ArrayList<>();
 		game_label_list = new ArrayList<>();
 		game_button_matrix = new ArrayList<>();
+		
+		current_question = "";
+		current_correct_answer = "";
+		current_game_value = 0;
 
 		set_up_main_database();
 		set_up_practice_database();
@@ -78,7 +86,7 @@ public class Util {
 	public static void set_up_main_database()
 			throws FileNotFoundException, IOException {
 		String filePath = System.getProperty("user.dir")
-				+ "\\application\\Quinzical.txt";
+				+ "/rsc/Quinzical.txt";
 		System.out.println(filePath);
 		category_list = FileIO.readCategory(filePath);
 		main_database = FileIO.readFileContent(filePath);
@@ -151,12 +159,11 @@ public class Util {
 				}
 			}
 		}
-	}
-	
-	public static void set_up_button_matrix() {
+		String score_str = "Current Score: " + Util.game_score;
+		gui_manager.get_game_scene().get_current_score_label().setText(score_str);
 		
 	}
-
+	
 	/**
 	 * By checking whether the last button from each category is visible to
 	 * detect whether the game is finished or not
@@ -164,11 +171,11 @@ public class Util {
 	 * @return output
 	 */
 	public static boolean check_is_game_finished() {
-
+	
 		boolean output = true;
 		ArrayList<ArrayList<Button>> temp_matrix = gui_manager.get_game_scene()
 				.get_button_matrix();
-
+	
 		for (int i = 0; i < temp_matrix.size(); i++) {
 			ArrayList<Button> temp_list = temp_matrix.get(i);
 			if (temp_list.get(temp_list.size() - 1).isVisible() == true) {
@@ -179,18 +186,16 @@ public class Util {
 		return output;
 	}
 	
-	public static void enable_game_button() {
-//		for (int i = 0; i < game_database.size(); i++) {
-//			int index = game_database.get(i).current_index;
-//			ArrayList<Button> temp_button_list = game_button_matrix.get(i);
-//			for (int j = 0; j < temp_button_list.size(); j++) {
-//				int temp_value = game_database.get(i).value_list.get(j);
-//				temp_button_list.get(j).setText(Integer.toString(temp_value));;
-//			}
-//		}
+	public static void shutdown(Stage mainWindow) {
+		ButtonType okButton = new ButtonType("Yes", ButtonData.YES);
+		ButtonType noButton = new ButtonType("Cancel", ButtonData.NO);
+		Alert alert = new Alert(Alert.AlertType.NONE,
+				"Progress will not be saved, are you sure to exit?",
+				ButtonType.YES, ButtonType.NO);
+		if (alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
+			mainWindow.close();
+		}
 	}
-
-	// public static void check
 
 	public List<Integer> get_practice_index_list() {
 		return practice_index_list;

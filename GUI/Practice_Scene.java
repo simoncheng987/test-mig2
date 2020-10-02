@@ -77,7 +77,7 @@ public class Practice_Scene extends Scene {
 					"Please select a category that you want to practice with");
 			instruction_label_top.setLayoutX(160);
 			instruction_label_top.setLayoutY(20);
-			instruction_label_top.setStyle(label_style);
+			instruction_label_top.setStyle("-fx-font-size:20; -fx-text-fill:#583c30");
 
 			AnchorPane top_anchor_pane = new AnchorPane(back_button,
 					instruction_label_top);

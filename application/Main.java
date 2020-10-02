@@ -42,18 +42,8 @@ public class Main extends Application {
 			// prevent window from closing
 			evt.consume();
 			// execute own shutdown procedure
-			shutdown(window);
+			Util.shutdown(window);
 		});
 	}
 
-	private void shutdown(Stage mainWindow) {
-		ButtonType okButton = new ButtonType("Yes", ButtonData.YES);
-		ButtonType noButton = new ButtonType("Cancel", ButtonData.NO);
-		Alert alert = new Alert(Alert.AlertType.NONE,
-				"Your progress will not be saved, are you sure to exit?",
-				ButtonType.YES, ButtonType.NO);
-		if (alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
-			mainWindow.close();
-		}
-	}
 }
