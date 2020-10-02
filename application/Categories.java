@@ -1,11 +1,14 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Categories {
 	public String name;
 	public List<String> question;
 	public List<String> answer;
+	public List<Integer> value_list;
+	public int current_index;
 	
 	public Categories(String Name, List<String> Q, List<String> A) {
 		this.name = Name;
