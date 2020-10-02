@@ -48,8 +48,8 @@ public class Start_Scene extends Scene {
 	public static Start_Scene getInstance() {
 		if (start_scene_instance == null) {
 			
-			InputStream input = Main.class.getResourceAsStream("/rsc/Start_Scene_Image.jpg");
-			
+			//reads the image
+			InputStream input = Main.class.getResourceAsStream("/rsc/Start_Scene_Image.jpg");	
 			Image image = new Image(input);
 			ImageView imageView = new ImageView(image);
 
