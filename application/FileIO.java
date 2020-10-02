@@ -52,7 +52,11 @@ public class FileIO {
 		Set<String> hashSet = new HashSet<>();
 
 		while (hashSet.size() < number) {
-			hashSet.add(input.get((int) Math.random() * input.size()));
+			// I need to critize Jeff's coding in here, serious bug.
+			// int temp = (int) Math.random() * input.size();
+			int temp = (int) (Math.random() * input.size());
+			hashSet.add(input.get(temp));
+			//System.err.println(temp);
 		}
 		List<String> output_random_categories = new ArrayList<>(hashSet);
 		return output_random_categories;
@@ -77,7 +81,7 @@ public class FileIO {
 	public static List<Categories> readFileContent(String filepath)
 			throws FileNotFoundException, IOException {
 		List<String> CategoriesNames = readCategory(filepath);
-		
+
 		boolean read = false;
 		List<Categories> output = new ArrayList<Categories>();
 
@@ -126,7 +130,7 @@ public class FileIO {
 					if ((line.length() < 3) && (read == true)) {
 						output.add(new Categories(CategoriesNames.get(i),
 								questions, answers));
-						
+
 						read = false;
 						break;
 					}

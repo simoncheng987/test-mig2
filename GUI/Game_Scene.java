@@ -93,7 +93,7 @@ public class Game_Scene extends Scene {
 			go_button.setLayoutY(15);
 			go_button.setPrefSize(120, 50);
 			go_button.setStyle(button_style);
-			
+
 			// if want to have it back just remove this line
 			go_button.setVisible(false);
 
@@ -141,6 +141,11 @@ public class Game_Scene extends Scene {
 
 					button.setPrefSize(100, 50);
 					button.setStyle(button_style);
+					// button.setDisable(true);
+
+					if (i != 1) {
+						button.setDisable(true);
+					}
 
 					middle_grid_pane.add(button, j, i);
 					button_list.add(button);
