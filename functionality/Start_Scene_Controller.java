@@ -6,6 +6,7 @@ import GUI.GUI_Manager;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
+import util.Util;
 
 public class Start_Scene_Controller {
 	GUI_Manager gui_manager;
@@ -21,7 +22,13 @@ public class Start_Scene_Controller {
 	public void set_game_button() {
 		Button game_button = gui_manager.get_start_scene().get_game_button();
 		game_button.setOnAction(e -> {
-			window.setScene(gui_manager.get_game_scene());
+			
+			if (Util.check_is_game_finished() == true) {
+				window.setScene(gui_manager.get_award_scene());
+			}else {
+				window.setScene(gui_manager.get_game_scene());
+			}
+
 		});
 	}
 

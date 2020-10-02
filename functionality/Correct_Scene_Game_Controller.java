@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import GUI.GUI_Manager;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import util.Util;
 
 public class Correct_Scene_Game_Controller {
 	GUI_Manager gui_manager;
@@ -19,7 +20,11 @@ public class Correct_Scene_Game_Controller {
 	public void set_back_button() {
 		Button back_button = gui_manager.get_correct_scene_game().get_back_button();
 		back_button.setOnAction(e -> {
-			window.setScene(gui_manager.get_game_scene());
+			if (Util.check_is_game_finished() == true) {
+				window.setScene(gui_manager.get_award_scene());
+			}else {
+				window.setScene(gui_manager.get_game_scene());
+			}
 		});
 	}
 }
