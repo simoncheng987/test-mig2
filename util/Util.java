@@ -87,7 +87,6 @@ public class Util {
 			throws FileNotFoundException, IOException {
 		String filePath = System.getProperty("user.dir")
 				+ "/rsc/Quinzical.txt";
-		System.out.println(filePath);
 		category_list = FileIO.readCategory(filePath);
 		main_database = FileIO.readFileContent(filePath);
 	}
