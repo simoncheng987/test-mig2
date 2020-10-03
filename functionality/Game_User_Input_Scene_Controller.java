@@ -70,21 +70,7 @@ public class Game_User_Input_Scene_Controller {
 				.get_speed_up_button();
 		speed_up_button.setOnAction(e -> {
 			String question = Util.current_question;
-			String label = gui_manager.get_game_user_input_scene()
-					.get_bottom_laebl_speaker().getText();
-			String value = label.replace("Speaker (Current speed: x", "");
-			value = value.replace(")", "");
-			double value_double = Double.parseDouble(value);
-
-			if (value_double < 1.5) {
-				value_double = value_double + 0.1;
-			}
-
-			String speed_val = Double.toString(value_double).substring(0, 3);
-
-			String output = "Speaker (Current speed: x" + speed_val + ")";
-			gui_manager.get_game_user_input_scene().get_bottom_laebl_speaker()
-					.setText(output);
+			
 			try {
 				if (Util.speaker_speed < 50) {
 					Util.speaker_speed = Speaker.speedUp(question,
@@ -95,6 +81,7 @@ public class Game_User_Input_Scene_Controller {
 			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
+			
 
 		});
 	}
@@ -103,21 +90,7 @@ public class Game_User_Input_Scene_Controller {
 		Button speed_down_button = gui_manager.get_game_user_input_scene()
 				.get_speed_down_button();
 		speed_down_button.setOnAction(e -> {
-			String label = gui_manager.get_game_user_input_scene()
-					.get_bottom_laebl_speaker().getText();
-			String value = label.replace("Speaker (Current speed: x", "");
-			value = value.replace(")", "");
-			double value_double = Double.parseDouble(value);
-
-			if (value_double > 0.5) {
-				value_double = value_double - 0.1;
-			}
-
-			String speed_val = Double.toString(value_double).substring(0, 3);
-
-			String output = "Speaker (Current speed: x" + speed_val + ")";
-			gui_manager.get_game_user_input_scene().get_bottom_laebl_speaker()
-					.setText(output);
+			
 			String question = Util.current_question;
 			try {
 				if (Util.speaker_speed > -50) {
@@ -129,6 +102,16 @@ public class Game_User_Input_Scene_Controller {
 			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
+			String label = gui_manager.get_game_user_input_scene()
+					.get_bottom_laebl_speaker().getText();
+			String value = label.replace("Speaker (Current speed: x", "");
+			value = value.replace(")", "");
+			double value_double = 1+Util.speaker_speed/100.0;
+			String speed_val = Double.toString(value_double).substring(0, 3);
+
+			String output = "Speaker (Current speed: x" + speed_val + ")";
+			gui_manager.get_game_user_input_scene().get_bottom_laebl_speaker()
+					.setText(output);
 
 		});
 	}
