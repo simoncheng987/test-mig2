@@ -46,7 +46,7 @@ public class Game_User_Input_Scene_Controller {
 			String user_answer = gui_manager.get_game_user_input_scene()
 					.get_user_input_text_field().getText();
 			
-			if(user_answer.equals(Util.current_correct_answer)) {
+			if(user_answer.equalsIgnoreCase(Util.current_correct_answer)) {
 				window.setScene(gui_manager.get_correct_scene_game());
 				
 				//updates the score
