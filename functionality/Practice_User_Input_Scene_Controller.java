@@ -84,19 +84,7 @@ public class Practice_User_Input_Scene_Controller {
 		Button speed_up_button = gui_manager.get_practice_user_input_scene().get_speed_up_button();
 		speed_up_button.setOnAction(e -> {
 			String question = Util.practice_question_list.get(Util.practice_list_index);
-			String label = gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().getText();
-			String value = label.replace("Speaker (Current speed: x", "");
-			value = value.replace(")", "");
-			double value_double = Double.parseDouble(value);
 			
-			if(value_double < 1.5) {
-				value_double = value_double + 0.1; 	
-			}
-			
-			String speed_val = Double.toString(value_double).substring(0,3);
-			
-			String output = "Speaker (Current speed: x" + speed_val + ")";
-			gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().setText(output);
 			try {
 				if(Util.speaker_speed<50) {
 			Util.speaker_speed= Speaker.speedUp(question, Util.speaker_speed);
@@ -107,6 +95,16 @@ public class Practice_User_Input_Scene_Controller {
 			}catch (InterruptedException | IOException e1) {
 			e1.printStackTrace();
 		}
+			String label = gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().getText();
+			String value = label.replace("Speaker (Current speed: x", "");
+			value = value.replace(")", "");
+	
+			double value_double = 1+Util.speaker_speed/100.0;
+			
+			String speed_val = Double.toString(value_double).substring(0,3);
+			
+			String output = "Speaker (Current speed: x" + speed_val + ")";
+			gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().setText(output);
 			
 		});
 	}
@@ -114,19 +112,6 @@ public class Practice_User_Input_Scene_Controller {
 	public void set_speed_down_button() {
 		Button speed_down_button = gui_manager.get_practice_user_input_scene().get_speed_down_button();
 		speed_down_button.setOnAction(e -> {
-			String label = gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().getText();
-			String value = label.replace("Speaker (Current speed: x", "");
-			value = value.replace(")", "");
-			double value_double = Double.parseDouble(value);
-			
-			if(value_double > 0.5) {
-				value_double = value_double - 0.1; 	
-			}
-			
-			String speed_val = Double.toString(value_double).substring(0,3);
-			
-			String output = "Speaker (Current speed: x" + speed_val + ")";
-			gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().setText(output);
 			String question = Util.practice_question_list.get(Util.practice_list_index);
 			try {
 				if(Util.speaker_speed>-50) {
@@ -138,7 +123,18 @@ public class Practice_User_Input_Scene_Controller {
 			}catch (InterruptedException | IOException e1) {
 			e1.printStackTrace();
 		}
+			String label = gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().getText();
+			String value = label.replace("Speaker (Current speed: x", "");
+			value = value.replace(")", "");
 			
+			double value_double = 1+Util.speaker_speed/100.0;
+			
+			
+			
+			String speed_val = Double.toString(value_double).substring(0,3);
+			
+			String output = "Speaker (Current speed: x" + speed_val + ")";
+			gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().setText(output);
 		});
 	}
 
