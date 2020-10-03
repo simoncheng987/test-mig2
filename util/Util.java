@@ -27,7 +27,7 @@ public class Util {
 
 	public static int practice_list_index;
 	public static int practice_number_of_attempt = 0;
-	public static int speaker_speed = 100;
+	public static int speaker_speed = 0;
 
 	public static int game_score = 0;
 	public static List<String> category_list_game = new ArrayList<>();
