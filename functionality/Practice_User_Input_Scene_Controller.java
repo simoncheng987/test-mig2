@@ -45,7 +45,7 @@ public class Practice_User_Input_Scene_Controller {
 					.getText();
 			String answer = Util.practice_answer_list.get(Util.practice_list_index);
 
-			if (user_input_string.equals(answer)) {
+			if (user_input_string.equalsIgnoreCase(answer)) {
 				window.setScene(gui_manager.get_correct_scene_practice());
 			} else {
 
