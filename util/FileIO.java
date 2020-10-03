@@ -116,7 +116,7 @@ public class FileIO {
 							questions.add(line.substring(0, line.indexOf(",")));
 						} else {
 							questions.add(
-									line.substring(0, line.indexOf("(") - 3));
+									line.substring(0, line.indexOf("(") - 1));
 						}
 						if (line.contains(".")) {
 							answers.add(line.substring(line.indexOf(")") + 2,
