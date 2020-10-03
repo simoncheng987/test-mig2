@@ -1,11 +1,8 @@
 package functionality;
 
-import java.util.ArrayList;
-
 import GUI.GUI_Manager;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import util.Util;

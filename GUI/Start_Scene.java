@@ -7,12 +7,11 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 /**
  * @author Simon
@@ -31,6 +30,7 @@ public class Start_Scene extends Scene {
 	private static Button game_button;
 	private static Button practice_button;
 	private static Button exit_button;
+	private static Label Quinzical_label;
 
 	public Start_Scene(Parent root, double width, double height) {
 		super(root, width, height);
@@ -48,10 +48,8 @@ public class Start_Scene extends Scene {
 	public static Start_Scene getInstance() {
 		if (start_scene_instance == null) {
 			
-			//reads the image
-			InputStream input = Main.class.getResourceAsStream("/rsc/Start_Scene_Image.jpg");	
-			Image image = new Image(input);
-			ImageView imageView = new ImageView(image);
+			Quinzical_label = new Label("Quinzical");
+			Quinzical_label.setStyle("-fx-font-size:144; -fx-text-fill:#82a6ae; -fx-text-alignment:center; -fx-wrap-text:true; -fx-font-style:italic; -fx-font-weight:lighter;");
 
 			game_button = new Button("Game");
 			practice_button = new Button("Practice");
@@ -70,7 +68,7 @@ public class Start_Scene extends Scene {
 
 			BorderPane layout = new BorderPane();
 			layout.setPadding(new Insets(0, 30, 30, 0));
-			layout.setCenter(imageView);
+			layout.setCenter(Quinzical_label);
 			layout.setBottom(hbox);
 			layout.setStyle("-fx-background-color:#f0ecc4");
 

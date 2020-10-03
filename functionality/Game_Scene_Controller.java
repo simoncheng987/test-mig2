@@ -100,14 +100,6 @@ public class Game_Scene_Controller {
 
 			}
 		}
-
-//		for (ArrayList<Button> arrayList : button_matrix) {
-//			for (Button temp_button : arrayList) {
-//				temp_button.setOnAction(e ->{
-//					window.setScene(gui_manager.get_game_user_input_scene());
-//				});
-//			}
-//		}
 	}
 
 }

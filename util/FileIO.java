@@ -52,8 +52,6 @@ public class FileIO {
 		Set<String> hashSet = new HashSet<>();
 
 		while (hashSet.size() < number) {
-			// I need to critize Jeff's coding in here, serious bug.
-			// int temp = (int) Math.random() * input.size();
 			int temp = (int) (Math.random() * input.size());
 			hashSet.add(input.get(temp));
 			//System.err.println(temp);

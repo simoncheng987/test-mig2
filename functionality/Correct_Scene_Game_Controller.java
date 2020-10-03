@@ -1,7 +1,5 @@
 package functionality;
 
-import java.util.ArrayList;
-
 import GUI.GUI_Manager;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
