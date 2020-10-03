@@ -85,10 +85,8 @@ public class Practice_User_Input_Scene_Controller {
 		speed_up_button.setOnAction(e -> {
 			String question = Util.practice_question_list.get(Util.practice_list_index);
 			String label = gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().getText();
-			System.out.println(label);
 			String value = label.replace("Speaker (Current speed: x", "");
 			value = value.replace(")", "");
-			System.out.println(value);
 			double value_double = Double.parseDouble(value);
 			
 			if(value_double < 1.5) {
@@ -116,12 +114,9 @@ public class Practice_User_Input_Scene_Controller {
 	public void set_speed_down_button() {
 		Button speed_down_button = gui_manager.get_practice_user_input_scene().get_speed_down_button();
 		speed_down_button.setOnAction(e -> {
-			Util.speaker_speed= Util.speaker_speed-10;
 			String label = gui_manager.get_practice_user_input_scene().get_bottom_laebl_speaker().getText();
-			System.out.println(label);
 			String value = label.replace("Speaker (Current speed: x", "");
 			value = value.replace(")", "");
-			System.out.println(value);
 			double value_double = Double.parseDouble(value);
 			
 			if(value_double > 0.5) {
@@ -144,7 +139,6 @@ public class Practice_User_Input_Scene_Controller {
 			e1.printStackTrace();
 		}
 			
-			System.out.println("speed down "+Util.speaker_speed);
 		});
 	}
 
@@ -157,7 +151,6 @@ public class Practice_User_Input_Scene_Controller {
 			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
-			System.out.println("repeat");
 
 		});
 	}
