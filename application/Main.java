@@ -3,9 +3,6 @@ package application;
 import GUI.GUI_Manager;
 import functionality.*;
 import javafx.application.Application;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import util.Util;
 

@@ -1,11 +1,7 @@
 package functionality;
 
-import java.util.ArrayList;
-
 import GUI.GUI_Manager;
-import application.Main;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 import util.Util;
 
