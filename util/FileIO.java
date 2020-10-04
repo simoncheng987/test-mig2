@@ -11,7 +11,10 @@ import java.util.List;
 import java.util.Set;
 
 public class FileIO {
-	// method to read the categories in the given directory.
+	/**
+	* Method to read the categories in the given directory. Takes the file path as input.
+	* Return a list of string containing all the categories in the file.
+        */
 	public static List<String> readCategory(String filepath)
 			throws FileNotFoundException, IOException {
 		List<String> output = new ArrayList<String>();
@@ -45,8 +48,11 @@ public class FileIO {
 		return output;
 
 	}
-
-	// method to pick a specified number of random categories
+        /**
+	* Method to pick a specified number of random categories Takes the a list of string and the number
+	* of categories that needed to be picked as input.
+	* Return a list of string containing a number of categories that are randomly picked.
+        */
 	public static List<String> pickRandomCategories(List<String> input,
 			int number) {
 		Set<String> hashSet = new HashSet<>();
@@ -59,8 +65,12 @@ public class FileIO {
 		List<String> output_random_categories = new ArrayList<>(hashSet);
 		return output_random_categories;
 	}
+        /**
+	* Method to get corresponding list of Categories objects. Takes the a list of string and a list of
+	* categories as input. Find corresponding list of Categories objects.
+	* Return a list of objects that contains all the categories objects that are randomly picked.
+        */
 
-	// method to get corresponding list of Categories objects.
 	public static List<Categories> FindCorrespondingCate(List<String> input1,
 			List<Categories> input2) {
 		List<Categories> output = new ArrayList<Categories>();
@@ -75,7 +85,10 @@ public class FileIO {
 
 	}
 
-	// method to read
+	/**
+	* Method to read file content. Takes the filepath of the file as input.
+	* Return a list of categories object.
+        */
 	public static List<Categories> readFileContent(String filepath)
 			throws FileNotFoundException, IOException {
 		List<String> CategoriesNames = readCategory(filepath);
