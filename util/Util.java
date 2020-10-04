@@ -83,7 +83,7 @@ public class Util {
 
 		// public static int practice_list_index;
 		practice_number_of_attempt = 0;
-		speaker_speed = 100;
+		speaker_speed = 0;
 
 		game_score = 0;
 		category_list_game = new ArrayList<>();
