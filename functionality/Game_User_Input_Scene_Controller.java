@@ -81,7 +81,16 @@ public class Game_User_Input_Scene_Controller {
 			} catch (InterruptedException | IOException e1) {
 				e1.printStackTrace();
 			}
-			
+			String label = gui_manager.get_game_user_input_scene()
+					.get_bottom_laebl_speaker().getText();
+			String value = label.replace("Speaker (Current speed: x", "");
+			value = value.replace(")", "");
+			double value_double = 1+Util.speaker_speed/100.0;
+			String speed_val = Double.toString(value_double).substring(0, 3);
+
+			String output = "Speaker (Current speed: x" + speed_val + ")";
+			gui_manager.get_game_user_input_scene().get_bottom_laebl_speaker()
+					.setText(output);
 
 		});
 	}
