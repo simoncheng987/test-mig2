@@ -20,7 +20,7 @@ import javafx.scene.layout.GridPane;
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
  *         Practice_Scene instance
  * 
- *         Description: The class for the Practice_Scene GUI.
+ *         Description: The practice scene for practice mode in Quinzical
  */
 
 public class Practice_Scene extends Scene {
@@ -44,7 +44,7 @@ public class Practice_Scene extends Scene {
 
 	private static String button_style = "-fx-background-color:#d8b063; -fx-font-family:monospace; -fx-font-size:24; -fx-font-weight:lighter; -fx-font-style:italic; -fx-text-fill:#583c30;";
 	private static String label_style = "-fx-font-size:24; -fx-text-fill:#583c30";
-	
+
 	public Practice_Scene(Parent root, double width, double height) {
 		super(root, width, height);
 	}
@@ -74,7 +74,8 @@ public class Practice_Scene extends Scene {
 					"Please select a category that you want to practice with");
 			instruction_label_top.setLayoutX(160);
 			instruction_label_top.setLayoutY(20);
-			instruction_label_top.setStyle("-fx-font-size:20; -fx-text-fill:#583c30");
+			instruction_label_top
+					.setStyle("-fx-font-size:20; -fx-text-fill:#583c30");
 
 			AnchorPane top_anchor_pane = new AnchorPane(back_button,
 					instruction_label_top);
@@ -108,7 +109,7 @@ public class Practice_Scene extends Scene {
 					radio_button_list.add(radio_button);
 				}
 			}
-			
+
 			// select the first radio button by default
 			toggle_group.getToggles().get(0).setSelected(true);
 
@@ -124,10 +125,16 @@ public class Practice_Scene extends Scene {
 		return practice_scene_instance;
 	}
 
+	/**
+	 * @return the back button
+	 */
 	public Button get_back_button() {
 		return back_button;
 	}
 
+	/**
+	 * @return the go button
+	 */
 	public Button get_go_button() {
 		return go_button;
 	}
@@ -157,7 +164,10 @@ public class Practice_Scene extends Scene {
 		}
 		return null;
 	}
-	
+
+	/**
+	 * @return returns the toggle group that contains all the radio buttons
+	 */
 	public ToggleGroup get_toggle_group() {
 		return toggle_group;
 	}

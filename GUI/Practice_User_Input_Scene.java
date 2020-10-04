@@ -17,9 +17,10 @@ import javafx.scene.layout.VBox;
  *         Design Pattern: Singleton
  * 
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
- *         practice_user_input_scene instance
+ *         Practice_User_Input_Scene instance
  * 
- *         Description: The GUI of the user input scene in practice mode.
+ *         Description: The scene after user picks a category category from the
+ *         practice scene
  */
 
 public class Practice_User_Input_Scene extends Scene {
@@ -51,9 +52,9 @@ public class Practice_User_Input_Scene extends Scene {
 	}
 
 	/**
-	 * Method that returns an instance of practice_user_input_scene object
+	 * Method that returns an instance of Practice_User_Input_Scene object
 	 * 
-	 * @return Start_Scene
+	 * @return Practice_User_Input_Scene
 	 */
 	public static Practice_User_Input_Scene getInstance() {
 		if (practice_user_input_scene_instance == null) {
@@ -157,6 +158,9 @@ public class Practice_User_Input_Scene extends Scene {
 		return practice_user_input_scene_instance;
 	}
 
+	/**
+	 * @return the question label
+	 */
 	public Label get_question_label() {
 		return top_laebl_question;
 	}
@@ -165,38 +169,51 @@ public class Practice_User_Input_Scene extends Scene {
 	 * This method is useful when user click on button of speed up and down The
 	 * change of value in the speed will be shown
 	 * 
-	 * @return
+	 * @return the label for showing tts's speed
 	 */
 	public Label get_bottom_laebl_speaker() {
 		return bottom_laebl_speaker;
 	}
 
+	/**
+	 * @return the textfield where user input their answer
+	 */
 	public TextField get_user_input_text_field() {
 		return center_text_field_user_input;
 	}
 
+	/**
+	 * @return the speed up button
+	 */
 	public Button get_speed_up_button() {
 		return bottom_button_speed_up;
 	}
 
+	/**
+	 * @return the speed down button
+	 */
 	public Button get_speed_down_button() {
 		return bottom_button_speed_down;
 	}
 
+	/**
+	 * @return the repeat button
+	 */
 	public Button get_repeat_button() {
 		return bottom_button_repeat;
 	}
 
 	/**
-	 * return the show answer button. When user click on this, bring them to the
-	 * incorrect scene.
 	 * 
-	 * @return
+	 * @return back to menu button
 	 */
 	public Button get_back_to_memu_button() {
 		return bottom_button_back_to_menu;
 	}
 
+	/**
+	 * @return the submit button.
+	 */
 	public Button get_submit_button() {
 		return bottom_button_submit;
 	}
@@ -206,7 +223,7 @@ public class Practice_User_Input_Scene extends Scene {
 	 * answer here" After: "Please enter your answer here (hint: the answer
 	 * starts with 'a')
 	 * 
-	 * @return
+	 * @return the notification label
 	 */
 	public Label get_notification_label() {
 		return center_laebl_notification;

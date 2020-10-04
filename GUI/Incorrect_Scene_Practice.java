@@ -17,9 +17,10 @@ import javafx.scene.layout.VBox;
  *         Design Pattern: Singleton
  * 
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
- *         correct_scene instance
+ *         Correct_Scene_Game instance
  * 
- *         Description: The GUI of the user's answer is incorrect
+ *         Description: The incorrect scene when user's answer is incorrect in
+ *         practice mode
  */
 
 public class Incorrect_Scene_Practice extends Scene {
@@ -42,17 +43,17 @@ public class Incorrect_Scene_Practice extends Scene {
 	}
 
 	/**
-	 * Method that returns an instance of correct_scene object
+	 * Method that returns an instance of Incorrect_Scene_Practice object
 	 * 
-	 * @return Start_Scene
+	 * @return Incorrect_Scene_Practice
 	 */
 	public static Incorrect_Scene_Practice getInstance() {
 		if (incorrect_scene_instance == null) {
-			
+
 			// the top layout
 			AnchorPane blank_anchor_pane = new AnchorPane();
 			blank_anchor_pane.setPrefSize(800, 50);
-			
+
 			// the center layout
 
 			center_label_notification = new Label(" The correct answer is:");
@@ -63,8 +64,8 @@ public class Incorrect_Scene_Practice extends Scene {
 					"the Official National Wizard");
 			center_laebl_correct_answer.setStyle(
 					"-fx-font-size:44; -fx-text-fill:#82a6ae; -fx-text-alignment:center; -fx-wrap-text:true;");
-			
-			VBox top_vbox = new VBox( center_label_notification,
+
+			VBox top_vbox = new VBox(center_label_notification,
 					center_laebl_correct_answer);
 			top_vbox.setAlignment(Pos.CENTER);
 
@@ -74,11 +75,10 @@ public class Incorrect_Scene_Practice extends Scene {
 			bottom_button_back.setStyle(button_style);
 			bottom_button_back.setMinSize(125, 50);
 
-
 			HBox bottom_hbox = new HBox(bottom_button_back);
 			bottom_hbox.setPadding(new Insets(0, 0, 20, 20));
 			bottom_hbox.setSpacing(10);
-			
+
 			VBox bottom_vbox = new VBox(bottom_hbox);
 
 			// put them together
@@ -88,21 +88,25 @@ public class Incorrect_Scene_Practice extends Scene {
 			layout.setBottom(bottom_vbox);
 			layout.setStyle("-fx-background-color:#f0ecc4");
 
-			incorrect_scene_instance = new Incorrect_Scene_Practice(
-					layout, GUI_Manager.WINDOW_WIDTH,
-					GUI_Manager.WINDOW_HEIGHT);
+			incorrect_scene_instance = new Incorrect_Scene_Practice(layout,
+					GUI_Manager.WINDOW_WIDTH, GUI_Manager.WINDOW_HEIGHT);
 		}
 
 		return incorrect_scene_instance;
 	}
 
+	/**
+	 * @return the label in the center
+	 */
 	public Label get_correct_answer_label() {
 		return center_laebl_correct_answer;
 	}
 
+	/**
+	 * @return the back button
+	 */
 	public Button get_back_button() {
 		return bottom_button_back;
 	}
-	
 
 }

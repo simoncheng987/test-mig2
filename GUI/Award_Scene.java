@@ -17,9 +17,9 @@ import javafx.scene.layout.VBox;
  *         Design Pattern: Singleton
  * 
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
- *         award_scene instance
+ *         Award_Scene instance
  * 
- *         Description: The GUI of when user finishes all the questions
+ *         Description: The award scene when user finishes all the questions
  */
 
 public class Award_Scene extends Scene {
@@ -43,9 +43,9 @@ public class Award_Scene extends Scene {
 	}
 
 	/**
-	 * Method that returns an instance of award_scene object
+	 * Method that returns an instance of Award_Scene object
 	 * 
-	 * @return Start_Scene
+	 * @return Award_Scene
 	 */
 	public static Award_Scene getInstance() {
 		if (award_scene_instance == null) {
@@ -94,14 +94,22 @@ public class Award_Scene extends Scene {
 		return award_scene_instance;
 	}
 
+	/**
+	 * @return the label in the center
+	 */
 	public Label get_label() {
 		return center_laebl;
 	}
-
+	/**
+	 * @return the back button
+	 */
 	public Button get_back_button() {
 		return bottom_button_back;
 	}
 	
+	/**
+	 * @return the reset button
+	 */
 	public Button get_reset_button() {
 		return bottom_button_reset;
 	}
