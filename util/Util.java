@@ -15,33 +15,46 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.stage.Stage;
 
-public class Util {
+/**
+ * @author Simon
+ *
+ *         The utility class for Quinzical.
+ */
 
+public class Util {
+	// universal
 	public static List<Categories> main_database = new ArrayList<>();
 	public static List<String> category_list = new ArrayList<>();
+	public static GUI_Manager gui_manager;
 
+	// practice mode related
 	public static List<Integer> practice_index_list = new ArrayList<>();
 	public static List<String> practice_question_list = new ArrayList<>();
 	public static List<String> practice_answer_list = new ArrayList<>();
-	public static GUI_Manager gui_manager;
 
+	// speaker related
 	public static int practice_list_index;
 	public static int practice_number_of_attempt = 0;
 	public static int speaker_speed = 0;
 
+	// game mode related
 	public static int game_score = 0;
 	public static List<String> category_list_game = new ArrayList<>();
 	public static List<Categories> game_database = new ArrayList<>();
 	public static List<Label> game_label_list = new ArrayList<>();
 	public static ArrayList<ArrayList<Button>> game_button_matrix = new ArrayList<>();
-	
-	// these are variable for games
 	public static String current_question = "";
 	public static String current_correct_answer = "";
 	public static int current_game_value = 0;
 
-	// public static int
-
+	/**
+	 * constructor calls some methods that setups the database, pass in a
+	 * GUI_Manager instance
+	 * 
+	 * @param gui_manager
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public Util(GUI_Manager gui_manager)
 			throws FileNotFoundException, IOException {
 		this.gui_manager = gui_manager;
@@ -52,6 +65,13 @@ public class Util {
 		set_up_game_scene();
 	}
 
+	/**
+	 * 
+	 * Method resets the game
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static void reset() throws FileNotFoundException, IOException {
 
 		main_database = new ArrayList<>();
@@ -70,7 +90,7 @@ public class Util {
 		game_database = new ArrayList<>();
 		game_label_list = new ArrayList<>();
 		game_button_matrix = new ArrayList<>();
-		
+
 		current_question = "";
 		current_correct_answer = "";
 		current_game_value = 0;
@@ -83,14 +103,22 @@ public class Util {
 
 	}
 
+	/**
+	 * sets up the main database, and the category list
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static void set_up_main_database()
 			throws FileNotFoundException, IOException {
-		String filePath = System.getProperty("user.dir")
-				+ "/rsc/Quinzical.txt";
+		String filePath = System.getProperty("user.dir") + "/rsc/Quinzical.txt";
 		category_list = FileIO.readCategory(filePath);
 		main_database = FileIO.readFileContent(filePath);
 	}
 
+	/**
+	 * sets up the database for the practice mode
+	 */
 	public static void set_up_practice_database() {
 		for (int i = 0; i < main_database.size(); i++) {
 			int index = (int) (1
@@ -102,6 +130,9 @@ public class Util {
 		}
 	}
 
+	/**
+	 * sets up the practice scene with category names from category_list
+	 */
 	public static void set_up_practice_scene() {
 		ArrayList<RadioButton> button_list = gui_manager.get_practice_scene()
 				.get_radio_button_list();
@@ -110,12 +141,18 @@ public class Util {
 		}
 	}
 
+	/**
+	 * clear the practice database
+	 */
 	public static void clear_practice_database() {
 		practice_index_list.clear();
 		practice_question_list.clear();
 		practice_answer_list.clear();
 	}
 
+	/**
+	 * sets up the database that used in game mode
+	 */
 	public static void set_up_game_database() {
 		category_list_game = FileIO.pickRandomCategories(category_list, 5);
 		game_database = FileIO.FindCorrespondingCate(category_list_game,
@@ -137,6 +174,9 @@ public class Util {
 		}
 	}
 
+	/**
+	 * sets up the game scene with data from the game database
+	 */
 	public static void set_up_game_scene() {
 		// set up the category names
 		game_label_list = gui_manager.get_game_scene().get_label_list();
@@ -159,22 +199,22 @@ public class Util {
 			}
 		}
 		String score_str = "Current Score: " + Util.game_score;
-		gui_manager.get_game_scene().get_current_score_label().setText(score_str);
-		
+		gui_manager.get_game_scene().get_current_score_label()
+				.setText(score_str);
 	}
-	
+
 	/**
 	 * By checking whether the last button from each category is visible to
 	 * detect whether the game is finished or not
 	 * 
-	 * @return output
+	 * @return whether the game is finished or not
 	 */
 	public static boolean check_is_game_finished() {
-	
+
 		boolean output = true;
 		ArrayList<ArrayList<Button>> temp_matrix = gui_manager.get_game_scene()
 				.get_button_matrix();
-	
+
 		for (int i = 0; i < temp_matrix.size(); i++) {
 			ArrayList<Button> temp_list = temp_matrix.get(i);
 			if (temp_list.get(temp_list.size() - 1).isVisible() == true) {
@@ -184,7 +224,14 @@ public class Util {
 		}
 		return output;
 	}
-	
+
+	/**
+	 * 
+	 * Method that pops up an alert box reminds user their progress will not
+	 * saved before their exits
+	 * 
+	 * @param mainWindow
+	 */
 	public static void shutdown(Stage mainWindow) {
 		ButtonType okButton = new ButtonType("Yes", ButtonData.YES);
 		ButtonType noButton = new ButtonType("Cancel", ButtonData.NO);
@@ -196,23 +243,4 @@ public class Util {
 		}
 	}
 
-	public List<Integer> get_practice_index_list() {
-		return practice_index_list;
-	}
-
-	public List<String> get_practice_question_list() {
-		return practice_question_list;
-	}
-
-	public List<String> get_practice_answer_list() {
-		return practice_answer_list;
-	}
-
-	public List<String> get_category_list() {
-		return category_list;
-	}
-
-	public List<Categories> get_main_database() {
-		return main_database;
-	}
 }

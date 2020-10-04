@@ -10,10 +10,22 @@ import util.Categories;
 import util.Speaker;
 import util.Util;
 
+/**
+ * @author Simon
+ * 
+ *         This class manages all the functionalities of the buttons in the game
+ *         scene.
+ */
 public class Game_Scene_Controller {
 	GUI_Manager gui_manager;
 	Stage window;
 
+	/**
+	 * When the constructor is called, it sets up all the the functionalities
+	 * 
+	 * @param gui_manager
+	 * @param window
+	 */
 	public Game_Scene_Controller(GUI_Manager gui_manager, Stage window) {
 		this.gui_manager = gui_manager;
 		this.window = window;
@@ -21,6 +33,9 @@ public class Game_Scene_Controller {
 		set_go_button();
 	}
 
+	/**
+	 * sets up the functionality of the back button
+	 */
 	public void set_back_button() {
 		Button back_button = gui_manager.get_game_scene().get_back_button();
 		back_button.setOnAction(e -> {
@@ -35,12 +50,14 @@ public class Game_Scene_Controller {
 		ArrayList<ArrayList<Button>> button_matrix = gui_manager
 				.get_game_scene().get_button_matrix();
 
+		// loop through each category
 		for (int i = 0; i < button_matrix.size(); i++) {
 			ArrayList<Button> button_list = button_matrix.get(i);
 			String current_category_name = Util.game_label_list.get(i)
 					.getText();
 			Categories current_category = Util.game_database.get(i);
 
+			// loop through each button in a category
 			for (int j = 0; j < button_list.size(); j++) {
 				Button temp_button = button_list.get(j);
 				int last_row = button_list.size() - 1;
@@ -51,7 +68,7 @@ public class Game_Scene_Controller {
 				int temp_score = Integer.parseInt(temp_button.getText());
 
 				// checks if this is the last row, if yes, it does not enable
-				// the next button since there is no such a button
+				// the next button since there is no such a button.
 				if (j == last_row) {
 					temp_button.setOnAction(e -> {
 						temp_button.setVisible(false);
@@ -60,7 +77,7 @@ public class Game_Scene_Controller {
 						Util.current_question = temp_question;
 						Util.current_correct_answer = temp_answer;
 						Util.current_game_value = temp_score;
-						
+
 						// speaks out the question
 						try {
 							Speaker.speedySpeak(Util.current_question,

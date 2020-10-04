@@ -17,9 +17,10 @@ import javafx.scene.layout.VBox;
  *         Design Pattern: Singleton
  * 
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
- *         game_user_input_scene instance
+ *         Game_User_Input_Scene instance
  * 
- *         Description: The GUI of the user input scene in game mode.
+ *         Description: The scene after user picks a value under a category from
+ *         the game scene
  */
 
 public class Game_User_Input_Scene extends Scene {
@@ -51,9 +52,9 @@ public class Game_User_Input_Scene extends Scene {
 	}
 
 	/**
-	 * Method that returns an instance of game_user_input_scene object
+	 * Method that returns an instance of Game_User_Input_Scene object
 	 * 
-	 * @return Start_Scene
+	 * @return Game_User_Input_Scene
 	 */
 	public static Game_User_Input_Scene getInstance() {
 		if (game_user_input_scene_instance == null) {
@@ -64,7 +65,8 @@ public class Game_User_Input_Scene extends Scene {
 					"-fx-font-size:30; -fx-text-fill:#583c30; -fx-font-weight:bold;");
 			top_laebl_game_mode.setLayoutX(320);
 
-			top_laebl_clue_notification = new Label(" There is no written clue in Game Mode:");
+			top_laebl_clue_notification = new Label(
+					" There is no written clue in Game Mode:");
 			top_laebl_clue_notification.setStyle(
 					"-fx-font-size:20; -fx-text-fill:#583c30; -fx-font-style:italic;");
 
@@ -73,8 +75,7 @@ public class Game_User_Input_Scene extends Scene {
 			top_laebl_question.setStyle(
 					"-fx-font-size:55; -fx-text-fill:#000000; -fx-text-alignment:center; -fx-wrap-text:true;");
 
-			AnchorPane top_anchor_pane = new AnchorPane(
-					top_laebl_game_mode);
+			AnchorPane top_anchor_pane = new AnchorPane(top_laebl_game_mode);
 			VBox top_vbox = new VBox(top_anchor_pane,
 					top_laebl_clue_notification, top_laebl_question);
 			top_laebl_question.setPadding(new Insets(0, 0, 0, 30));
@@ -149,14 +150,16 @@ public class Game_User_Input_Scene extends Scene {
 			layout.setBottom(bottom_vbox);
 			layout.setStyle("-fx-background-color:#f0ecc4");
 
-			game_user_input_scene_instance = new Game_User_Input_Scene(
-					layout, GUI_Manager.WINDOW_WIDTH,
-					GUI_Manager.WINDOW_HEIGHT);
+			game_user_input_scene_instance = new Game_User_Input_Scene(layout,
+					GUI_Manager.WINDOW_WIDTH, GUI_Manager.WINDOW_HEIGHT);
 		}
 
 		return game_user_input_scene_instance;
 	}
 
+	/**
+	 * @return the question label
+	 */
 	public Label get_question_label() {
 		return top_laebl_question;
 	}
@@ -165,48 +168,58 @@ public class Game_User_Input_Scene extends Scene {
 	 * This method is useful when user click on button of speed up and down The
 	 * change of value in the speed will be shown
 	 * 
-	 * @return
+	 * @return the label of showing the tts speed
 	 */
 	public Label get_bottom_laebl_speaker() {
 		return bottom_laebl_speaker;
 	}
 
+	/**
+	 * @return the textfield where user input their answer
+	 */
 	public TextField get_user_input_text_field() {
 		return center_text_field_user_input;
 	}
 
+	/**
+	 * @return the speed up button
+	 */
 	public Button get_speed_up_button() {
 		return bottom_button_speed_up;
 	}
 
+	/**
+	 * @return the speed down button
+	 */
 	public Button get_speed_down_button() {
 		return bottom_button_speed_down;
 	}
 
+	/**
+	 * @return the repeat button
+	 */
 	public Button get_repeat_button() {
 		return bottom_button_repeat;
 	}
 
 	/**
-	 * return the dont_know_button button. When user click on this, bring them to the
-	 * incorrect scene.
 	 * 
-	 * @return
+	 * @return the dont_know_button button.
 	 */
 	public Button get_dont_know_button() {
 		return bottom_button_dont_know;
 	}
 
+	/**
+	 * @return the submit button.
+	 */
 	public Button get_submit_button() {
 		return bottom_button_submit;
 	}
 
 	/**
-	 * Useful to append some hint in this label Before: "Please enter your
-	 * answer here" After: "Please enter your answer here (hint: the answer
-	 * starts with 'a')
 	 * 
-	 * @return
+	 * @return the notification label
 	 */
 	public Label get_notification_label() {
 		return center_laebl_notification;

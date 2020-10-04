@@ -8,7 +8,9 @@ import util.Util;
 
 /**
  * 
- * @author jeffp,simonc The main page of quinzical
+ * @author Jeff, Simon
+ * 
+ * Contains main class to launch Quinzical.
  */
 public class Main extends Application {
 

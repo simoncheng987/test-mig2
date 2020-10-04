@@ -3,6 +3,11 @@ package functionality;
 import GUI.GUI_Manager;
 import javafx.stage.Stage;
 
+/**
+ * @author Simon
+ * 
+ *         This class manages all the controller classes
+ */
 public class Controller_Manager {
 	GUI_Manager gui_manager;
 	Stage window;
@@ -18,6 +23,14 @@ public class Controller_Manager {
 	private Start_Scene_Controller start_scene_controller;
 	private Award_Scene_Controller award_scene_controller;
 
+	/**
+	 * When the constructor of Controller_Manager is called, it creates
+	 * instances of all the controller classes to set up all the buttons
+	 * functionalities in Quinzical
+	 * 
+	 * @param gui_manager
+	 * @param window
+	 */
 	public Controller_Manager(GUI_Manager gui_manager, Stage window) {
 		this.gui_manager = gui_manager;
 		this.window = window;
@@ -39,44 +52,8 @@ public class Controller_Manager {
 				gui_manager, window);
 		start_scene_controller = new Start_Scene_Controller(gui_manager,
 				window);
-		award_scene_controller = new Award_Scene_Controller(gui_manager, window);
+		award_scene_controller = new Award_Scene_Controller(gui_manager,
+				window);
 	}
-
-	public Correct_Scene_Game_Controller get_correct_scene_game_controller() {
-		return correct_scene_game_controller;
-	}
-
-	public Correct_Scene_Practice_Controller get_correct_scene_practice_controller() {
-		return correct_scene_practice_controller;
-	}
-
-	public Game_Scene_Controller get_game_scene_controller() {
-		return game_scene_controller;
-	}
-
-	public Game_User_Input_Scene_Controller get_game_user_input_scene_controller() {
-		return game_user_input_scene_controller;
-	}
-
-	public Incorrect_Scene_Game_Controller get_incorrect_scene_game_controller() {
-		return incorrect_scene_game_controller;
-	}
-
-	public Incorrect_Scene_Practice_Controller get_incorrect_scene_practice_controller() {
-		return incorrect_scene_practice_controller;
-	}
-
-	public Practice_Scene_Controller get_practice_scene_controller() {
-		return practice_scene_controller;
-	}
-
-	public Practice_User_Input_Scene_Controller get_practice_user_input_scene_controller() {
-		return practice_user_input_scene_controller;
-	}
-
-	public Start_Scene_Controller get_start_scene_controller() {
-		return start_scene_controller;
-	}
-	
 
 }

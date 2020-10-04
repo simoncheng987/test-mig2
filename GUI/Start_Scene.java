@@ -19,9 +19,9 @@ import javafx.scene.layout.HBox;
  *         Design Pattern: Singleton
  * 
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
- *         start_scene instance
+ *         Start_Scene instance
  * 
- *         Description: The class for the start scene GUI.
+ *         Description: The start scene of Quinzical
  */
 
 public class Start_Scene extends Scene {
@@ -78,14 +78,23 @@ public class Start_Scene extends Scene {
 		return start_scene_instance;
 	}
 
+	/**
+	 * @return the game button
+	 */
 	public Button get_game_button() {
 		return game_button;
 	}
 
+	/**
+	 * @return the practice button
+	 */
 	public Button get_practice_button() {
 		return practice_button;
 	}
 	
+	/**
+	 * @return the exit button
+	 */
 	public Button get_exit_button() {
 		return exit_button;
 	}

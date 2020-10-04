@@ -19,7 +19,7 @@ import javafx.scene.layout.GridPane;
  *         Purpose: Allows to get rid of bugs caused by repetitively creating
  *         Game_Scene instance
  * 
- *         Description: The class for the Game_Scene GUI.
+ *         Description: The game scene for game mode in Quinzical
  */
 
 public class Game_Scene extends Scene {
@@ -166,10 +166,16 @@ public class Game_Scene extends Scene {
 		return game_scene_instance;
 	}
 
+	/**
+	 * @return the back button
+	 */
 	public Button get_back_button() {
 		return back_button;
 	}
 
+	/**
+	 * @return the go button
+	 */
 	public Button get_go_button() {
 		return go_button;
 	}
@@ -244,7 +250,7 @@ public class Game_Scene extends Scene {
 			}
 		}
 
-		return "nf";
+		return "";
 	}
 
 	/**
@@ -269,6 +275,9 @@ public class Game_Scene extends Scene {
 		button.setVisible(false);
 	}
 	
+	/**
+	 * @return the label for showing user's current score
+	 */
 	public Label get_current_score_label() {
 		return current_score_label_bottom;
 	}
